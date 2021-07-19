@@ -11,7 +11,7 @@ def calcularAnios(sFechaInicial, sFechaFinal):
 
 	nAnioAuxiliar = nAnioFinal - nAnioInicio
 
-	if (nMesFinal < nMesInicio) or (nDiaFinal < nDiaInicio):
+	if (nMesFinal < nMesInicio) and (nDiaFinal < nDiaInicio):
 		nAnioAuxiliar = nAnioAuxiliar - 1
 
 	return nAnioAuxiliar
