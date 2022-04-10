@@ -1,29 +1,26 @@
 # -*- coding: utf-8 -*-         
 
-#--------------------------------------------------------------------------
+def anio(sFechaInicio, sFechaFinal):
+    
+    nDiaInicio, nMesInicio, nAnioInicio = (int(item) for item in sFechaInicio.split("/"))
+    nDiaFinal, nMesFinal, nAnioFinal = (int(item) for item in sFechaFinal.split("/"))
+    nAnioAuxiliar = nAnioFinal - nAnioInicio
 
-def calcularAnios(sFechaInicial, sFechaFinal):
-	nAnioAuxiliar = 0
+    if (nMesFinal < nMesInicio):
+        nAnioAuxiliar = nAnioAuxiliar - 1
+    elif (nDiaFinal < nDiaInicio):
+        nAnioAuxiliar = nAnioAuxiliar - 1
+        
+    return nAnioAuxiliar
 
-	nDiaInicio, nMesInicio, nAnioInicio = (int(item) for item in sFechaInicial.split("/"))
+# -------------------------------------------
 
-	nDiaFinal, nMesFinal, nAnioFinal = (int(item) for item in sFechaFinal.split("/"))
+sFechaInicio = input("Fecha nacimiento: ")
+sFechaFinal = input("Fecha destino: ")
 
-	nAnioAuxiliar = nAnioFinal - nAnioInicio
+print(f"Edad: {anio(sFechaInicio, sFechaFinal)}")
 
-	if (nMesFinal < nMesInicio) and (nDiaFinal < nDiaInicio):
-		nAnioAuxiliar = nAnioAuxiliar - 1
 
-	return nAnioAuxiliar
-
-#--------------------------------------------------------------------------
-
-def main():
-
-	sFechaInicial = input("Fecha de inicio (DD/MM/AAAA): ")
-	sFechaFinal = input("Fecha final (DD/MM/AAAA): ")
-	
-	print ("Cantidad de años: {}".format(calcularAnios(sFechaInicial, sFechaFinal)))
 
 #--------------------------------------------------------------------------
 
